@@ -1,0 +1,9 @@
+{
+  "name": "pavan-oi-backend",
+  "type": "module",
+  "dependencies": {
+    "openai": "^4.0.0",
+    "replicate": "^0.29.0",
+    "node-fetch": "^3.3.2"
+  }
+}
