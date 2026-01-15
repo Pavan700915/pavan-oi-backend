@@ -5,21 +5,19 @@ const replicate = new Replicate({
 });
 
 export default async function handler(req, res) {
-  const { prompt } = req.body;
-
   try {
+    const { prompt } = req.body;
+
     const output = await replicate.run(
       "anotherjesse/zeroscope-v2-xl",
       {
-        input: {
-          prompt,
-          num_frames: 24
-        }
+        input: { prompt }
       }
     );
 
     res.status(200).json({ video: output[0] });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message });
   }
 }
